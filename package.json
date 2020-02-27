@@ -1,0 +1,25 @@
+{
+  "name": "kairos-manager",
+  "version": "1.0.0",
+  "description": "School schedule manager",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node $npm_package_main",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniosilva/kairos-manager.git"
+  },
+  "keywords": [
+    "school",
+    "schedule",
+    "manager"
+  ],
+  "author": "viniosilva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viniosilva/kairos-manager/issues"
+  },
+  "homepage": "https://github.com/viniosilva/kairos-manager#readme"
+}
