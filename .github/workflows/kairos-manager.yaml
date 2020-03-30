@@ -34,7 +34,8 @@ jobs:
       run: npm ci
 
     - name: Lint
-      run: npm test
+      run: npm run lint
 
     - name: Tests
-      run: npm run lint
+      run: npx sequelize-cli --config src/config/database.js --migrations-path src/database/migrations db:migrate \
+        && npm test
