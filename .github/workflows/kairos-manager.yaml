@@ -1,0 +1,40 @@
+name: Kairos Manager CI
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    services:
+      db:
+        image: postgres:12.2-alpine
+        env:
+          POSTGRES_USER: kairos
+          POSTGRES_PASSWORD: manager
+          POSTGRES_DB: kairos_manager
+        ports:
+        - 5432:5432
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+      env:
+        CI: true
+
+    - name: Install
+      run: npm ci
+
+    - name: Lint
+      run: npm test
+
+    - name: Tests
+      run: npm run lint

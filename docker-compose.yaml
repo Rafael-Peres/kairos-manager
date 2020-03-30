@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  db:
+    image: postgres:12.2-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: kairos
+      POSTGRES_PASSWORD: manager
+      POSTGRES_DB: kairos_manager
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
