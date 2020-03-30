@@ -2,8 +2,8 @@ const { User, createUser } = require('../../../../src/entities/user');
 const { ValidationError } = require('../../../../src/common/errors');
 
 const userFixture = {
-  email: 'fulanodetal@test.com',
-  password: '123',
+  email: 'test@test.com',
+  password: '123456',
 };
 
 describe('User Entity', () => {
@@ -11,6 +11,7 @@ describe('User Entity', () => {
     afterEach(async () => {
       await User.destroy({ where: {} });
     });
+
     it('should return the created user when create a user', async () => {
       const newUser = await createUser(userFixture);
 
@@ -25,12 +26,21 @@ describe('User Entity', () => {
       }
     });
 
-    it('should throw a error with a duplicated user', async () => {
+    it('should throw a validation error when try create a duplicated user email', async () => {
       try {
         await createUser(userFixture);
         await createUser(userFixture);
       } catch (error) {
         expect(error instanceof ValidationError).toEqual(true);
+      }
+    });
+
+    it('should return a error message when try create a duplicated user email', async () => {
+      try {
+        await createUser(userFixture);
+        await createUser(userFixture);
+      } catch (error) {
+        expect(error.message).toEqual('email must be unique');
       }
     });
   });

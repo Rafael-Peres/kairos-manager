@@ -37,9 +37,9 @@ test/integration: docker/db/migrate
 test/e2e: docker/db/migrate
 	npm run test:e2e
 
-.PHONY: coverage
-coverage: docker/db/migrate
-	npm run coverage
+.PHONY: test/coverage
+test/coverage: docker/db/migrate
+	npm run test:coverage
 
 lint:
 	npm run lint

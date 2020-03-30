@@ -10,7 +10,7 @@
     "test:unit": "jest --color --detectOpenHandles --force-exit test/unit/",
     "test:integration": "jest --color --detectOpenHandles --force-exit test/integration/",
     "test:e2e": "jest --color --detectOpenHandles --force-exit test/e2e/",
-    "coverage": "jest --coverage --color --detectOpenHandles --force-exit test/",
+    "test:coverage": "jest --coverage --color --detectOpenHandles --force-exit test/",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },

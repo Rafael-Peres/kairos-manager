@@ -9,7 +9,7 @@ module.exports = async (payload) => {
     return await User.create(payload);
   } catch (error) {
     if (error instanceof ValidationErrorSequelize) {
-      const messageError = error.errors[0]
+      const messageError = error.errors && error.errors[0]
         ? error.errors[0].message
         : error.message;
 

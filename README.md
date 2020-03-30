@@ -69,7 +69,7 @@ make test/e2e
 
 Run this command in your terminal:
 ```bash
-make coverage
+make test/coverage
 ```
 
 ### Checking the code style
