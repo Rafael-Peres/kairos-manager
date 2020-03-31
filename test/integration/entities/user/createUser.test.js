@@ -1,5 +1,5 @@
 const { User, createUser } = require('../../../../src/entities/user');
-const { ValidationError } = require('../../../../src/common/errors');
+const { ConflictError } = require('../../../../src/common/errors');
 
 const userFixture = {
   email: 'test@test.com',
@@ -31,7 +31,7 @@ describe('User Entity', () => {
         await createUser(userFixture);
         await createUser(userFixture);
       } catch (error) {
-        expect(error instanceof ValidationError).toEqual(true);
+        expect(error instanceof ConflictError).toEqual(true);
       }
     });
 

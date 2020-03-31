@@ -1,2 +1,3 @@
-// eslint-disable-next-line no-console
-console.log('Hello world! (:');
+const { start } = require('./api/server');
+
+start();
