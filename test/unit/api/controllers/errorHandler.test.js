@@ -1,6 +1,6 @@
 const boom = require('@hapi/boom');
-const { errorHandler } = require('../../../../../src/api/helpers');
-const { req: reqMock, res, next: nextMock } = require('../../expressMocks');
+const errorHandler = require('../../../../src/api/controllers/errorHandler');
+const { req: reqMock, res, next: nextMock } = require('../expressMocks');
 
 let resMock;
 

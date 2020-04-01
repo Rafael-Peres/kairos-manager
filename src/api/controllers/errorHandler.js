@@ -1,5 +1,5 @@
 const boom = require('@hapi/boom');
-const logger = require('./logger');
+const logger = require('../../common/logger');
 
 /**
  * @swagger

@@ -3,6 +3,11 @@ jest.mock('../../../../../src/entities/user/createUser');
 const { createUser } = require('../../../../../src/services/user');
 const { createUser: createUserMock } = require('../../../../../src/entities/user');
 
+const userFixture = {
+  email: 'test@test.com',
+  password: '123456',
+};
+
 describe('User Service', () => {
   describe('Create User', () => {
     beforeEach(() => {
@@ -16,7 +21,7 @@ describe('User Service', () => {
         password: '123456',
       });
 
-      await createUser({});
+      await createUser(userFixture);
 
       expect(createUserMock).toHaveBeenCalledTimes(1);
     });

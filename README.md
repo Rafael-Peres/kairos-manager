@@ -28,6 +28,8 @@ If you prefer with Docker, run this commands in your terminal:
 make docker/up
 ```
 
+To see the API documentation: http://localhost:3000/api-docs/
+
 ## Testing
 
 ### Running developer mode

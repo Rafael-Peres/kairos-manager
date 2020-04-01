@@ -1,11 +1,7 @@
 const boom = require('@hapi/boom');
-const { logger } = require('../../helpers');
+const { logger } = require('../../../common');
 const { ConflictError, ValidationError } = require('../../../common/errors');
-const {
-  createUser,
-  formatUserRequest,
-  formatUserResponse,
-} = require('../../../services/user');
+const { createUser } = require('../../../services/user');
 
 /**
  * @swagger
@@ -46,13 +42,11 @@ const {
 
 module.exports = async (req, res, next) => {
   try {
-    const payload = formatUserRequest(req.body);
-    const newUser = await createUser(payload);
-    const response = formatUserResponse(newUser);
+    const user = await createUser(req.body);
 
-    logger.info('User created', { payload: response });
+    logger.info('User created', { payload: user });
 
-    res.status(201).json(response);
+    res.status(201).json(user);
   } catch (error) {
     if (error instanceof ValidationError) {
       logger.warn('Invalid payload on create user', { payload: req.body });
